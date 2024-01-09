@@ -6,7 +6,7 @@
 #    By: dacortes </var/mail/dacortes>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 09:41:02 by dacortes          #+#    #+#              #
-#    Updated: 2024/01/09 17:38:56 by dacortes         ###   ########.fr        #
+#    Updated: 2024/01/09 19:01:15 by dacortes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME = megaphone
 CPP = c++
-FLAGS = -Wall -Werror -Wextra -g -pedantic -std=c++98
+FLAGS = -Wall -Werror -Wextra -g -pedantic -std=c++98 #-fsanitize=address
 RM = rm -rf
 
 ################################################################################

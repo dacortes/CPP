@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:21:46 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/09 18:11:36 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:15:50 by dacortes         ###   ########.fr       */
 //	std::ini
 /*                                                                            */
 /* ************************************************************************** */
@@ -25,10 +25,17 @@ int main(int ac, char **av)
 	{
 		for (int word = 1; word < ac; word++)
 		{
-			str = av[word];
-			for (long unsigned int	c = 0; c < str.length(); c++)
-				str[c] = toupper(av[word][c]);
-			std::cout << str;
+			if (av[word] && !*av[word])
+				word++;
+			if (av[word] && *av[word])
+			{
+				str = av[word];
+				for (long unsigned int	c = 0; c < str.length(); c++)
+					str[c] = toupper(av[word][c]);
+				std::cout << str;
+				if (av[word + 1])
+					std::cout << " ";
+			}
 		}
 	}
 	std::cout << "\n";
