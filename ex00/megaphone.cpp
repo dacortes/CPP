@@ -6,14 +6,30 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:21:46 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/09 19:15:50 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:53:55 by dacortes         ###   ########.fr       */
 //	std::ini
 /*                                                                            */
+/* ************************************************************************** */
+
+
+/* ************************************************************************** */
+/*	Includes																																	*/
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <locale>
+
+/* ************************************************************************** */
+/*	Macros																																		*/
+/* ************************************************************************** */
+
+#define SUCCESS 0
+
+std::string cut_space(char *str)
+{
+	return (str);
+}
 
 int main(int ac, char **av)
 {
@@ -33,11 +49,9 @@ int main(int ac, char **av)
 				for (long unsigned int	c = 0; c < str.length(); c++)
 					str[c] = toupper(av[word][c]);
 				std::cout << str;
-				if (av[word + 1])
-					std::cout << " ";
 			}
 		}
 	}
 	std::cout << "\n";
-	return (0);
+	return (SUCCESS);
 }
