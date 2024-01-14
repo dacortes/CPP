@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:12:29 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/13 18:20:06 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/14 16:01:43 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,32 @@ void	Sample::bar(void) const
 	return ;
 }
 
+/*
 int	main(void)
 {
-	Sample sim(3.14);
 
-	sim.bar();
+	std::string input;
+	std::string	read;
+	int	i = 0;
+
+	std::cout << "Bienvenido a la agenda\n";
+	while (std::cin >> input  && i < 3)
+	{
+		read += input + ' ';
+		++i;
+	}
+	std::cout << read << "\n";
+	return (0);
+}
+*/
+#include <stdio.h>
+int	main(void)
+{
+	std::string	name;
+	std::cout << "Please enter your full name.\n";
+	std::getline(std::cin, name);
+	if (!name[0])
+		std::cout << "soy null jajajjajajaja\n";
+	std::cout << "your name is: " << name << "\n";
 	return (0);
 }
