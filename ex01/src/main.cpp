@@ -6,14 +6,12 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:12:29 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/16 16:31:28 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:06:31 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <iostream>
-#include <cstring>
-#include <iomanip> */
 #include "../inc/phonebook.h"
+
 void	center_space(const std::string str, int index)
 {
 	std::string tmp;
@@ -49,7 +47,7 @@ void	show_contacts(bool is)
 
 void	menu(void)
 {
-	std::cout << "Allowed opntions:\n";
+	std::cout << "Select any of the allowed options:\n";
 	std::cout << "*";
 	center_space("ADD\n", 5);
 	std::cout << "*";
@@ -61,23 +59,25 @@ void	menu(void)
 int	run(std::string input)
 {
 	menu();
-	std::getline(std::cin, input);
-	if (!input[0])
-		return (ERROR);
-	while (42)
+	while (true)
 	{
+		std::getline(std::cin, input);
 		if (!input[0])
 			return (ERROR);
 		if (!input.compare("ADD"))
 			std::cout << "voy agregar cosas jaja:v\n";
 		else if (!input.compare("SEARCH"))
-			std::cout << "voy a buscar cosas\n";
-		else if (!input.compare("EXIT"))
 		{
-			std::cout << "me voy\n";
-			return (SUCCESS);
+			show_contacts(false);
+			show_contacts(true);
 		}
-		std::getline(std::cin, input);
+		else if (!input.compare("EXIT"))
+			return (SUCCESS);
+		else
+		{
+			std::cout << "Invalid option\n";
+			menu();
+		}
 	}
 	return (SUCCESS);
 }
@@ -85,12 +85,8 @@ int	run(std::string input)
 int	main(void)
 {
 	std::string	input;
+	//PhoneBook	p_book;
 
-	/*
-	show_contacts(false);
-	show_contacts(true);
-	*/
-	run(input);
-	//std::cout << "your name is: " << name << "\n";
-	return (0);
+	//p_book.hola();
+	return (run(input));
 }
