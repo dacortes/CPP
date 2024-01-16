@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:12:29 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/16 17:06:31 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:13:32 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,10 @@ int	run(std::string input)
 int	main(void)
 {
 	std::string	input;
-	//PhoneBook	p_book;
+	PhoneBook	p_book;
+	Contact		c_cont;
 
-	//p_book.hola();
+	c_cont.first_name = "Dannyel";
+	p_book.add_Contact(c_cont, 0);
 	return (run(input));
 }
