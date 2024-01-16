@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:12:29 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/16 18:13:32 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:42:04 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int	main(void)
 	PhoneBook	p_book;
 	Contact		c_cont;
 
-	c_cont.first_name = "Dannyel";
+	c_cont.get_first_name("Dannyel");
+	c_cont.get_last_name("Cortes");
 	p_book.add_Contact(c_cont, 0);
 	return (run(input));
 }
