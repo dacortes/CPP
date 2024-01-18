@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:12:29 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/18 13:24:03 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:00:43 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	center_space(const std::string str, int index)
 	std::cout << tmp;
 }
 
-void	show_contacts(bool is)
+void	show_contacts(PhoneBook p_book, bool is)
 {
 	if (!is)
 	{
@@ -35,6 +35,7 @@ void	show_contacts(bool is)
 	}
 	else
 	{
+		/*
 		std::cout << "|";
 		center_space("1", 10);
 		std::cout << "|";
@@ -42,6 +43,17 @@ void	show_contacts(bool is)
 		std::cout << "|";
 		center_space("Cortes", 10);
 		std::cout << "|\n";
+		*/
+		for (unsigned int i = 0; i < 1; i++)
+		{
+			std::cout << "|";
+			center_space(itoa(i), 10);
+			std::cout << "|";
+			center_space(p_book.contacts[i].get_first_name, 10);
+			std::cout << "|";
+			center_space(p_book.contacts[i].get_last_name, 10);
+			std::cout << "\n";
+		}
 	}
 }
 
@@ -58,26 +70,30 @@ void	menu(void)
 
 bool	init_data(std::string input, PhoneBook p_book, int *index)
 {
-	(void)p_book;
 	Contact	_new;
+	int		stt;
 
+	stt = 0;
 	std::cout << "  first name:\n";
 	std::getline(std::cin, input);
-	_new.set_first_name(input);
+	stt += _new.set_first_name(input);
 	std::cout << "  last name:\n";
 	std::getline(std::cin, input);
-	_new.set_last_name(input);
+	stt += _new.set_last_name(input);
 	std::cout << "  phone number:\n";
 	std::getline(std::cin, input);
-	while (_new.set_phone_number(input))
+	while (stt != ERROR && _new.set_phone_number(input))
 	{
+		stt += _new.set_phone_number(input);
 		std::cout << "   Invalid input, the field 'phone number'"
 			<< " only accepts digits\n";
 		std::getline(std::cin, input);
 	}
 	std::cout << "  darkest_secret:\n";
 	std::getline(std::cin, input);
-	_new.set_darkest_secret(input);
+	stt += _new.set_darkest_secret(input);
+	if (stt < SUCCESS)
+		return (true);
 	p_book.add_Contact(_new, *index);
 	index++;
 	return (false);
@@ -97,12 +113,13 @@ bool	run(std::string input)
 			return (true);
 		if (!input.compare("ADD"))
 		{
-			init_data(input, p_book, &index);
+			if (init_data(input, p_book, &index))
+				std::cout << "Error set paramts\n";
 		}
 		else if (!input.compare("SEARCH"))
 		{
-			show_contacts(false);
-			show_contacts(true);
+			show_contacts(p_book, false);
+			show_contacts(p_book, true);
 		}
 		else if (!input.compare("EXIT"))
 			return (false);

@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:52:54 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/18 12:27:27 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:30:26 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,53 @@ Contact::Contact(void)
 {
 }
 
-bool	Contact::set_first_name(std::string first_name)
+int	Contact::set_first_name(std::string first_name)
 {
-	if (!first_name[0])
-		return (true);
+	const char	*stt;
+
+	stt =  first_name.c_str();
+	if (!stt || !*stt)
+		return (ERROR);
 	_first_name = first_name;
-	return (false);
+	return (SUCCESS);
 }
 
-bool	Contact::set_last_name(std::string last_name)
+int	Contact::set_last_name(std::string last_name)
 {
-	if (!last_name[0])
-		return  (true);
+	const char	*stt;
+
+	stt =  last_name.c_str();
+	if (!stt || !*stt)
+		return (ERROR);
 	_last_name = last_name;
-	return (false);
+	return (SUCCESS);
 }
 
-bool	Contact::set_phone_number(std::string phone_number)
+int	Contact::set_phone_number(std::string phone_number)
 {
-	if (!phone_number[0])
-		return (true);
+	const char	*stt;
+
+	stt =  phone_number.c_str();
+	if (!stt || !*stt)
+		return (ERROR);
 	for (unsigned int i = 0; i < phone_number.length(); i++)
 	{
 		if (!std::isdigit(phone_number[0]))
-			return (true);
+			return (E_NUM);
 	}
 	_phone_number = phone_number;
-	return (false);
+	return (SUCCESS);
 }
 
-bool	Contact::set_darkest_secret(std::string darkest_secret)
+int	Contact::set_darkest_secret(std::string darkest_secret)
 {
-	if (!darkest_secret[0])
-		return (true);
+	const char	*stt;
+
+	stt =  darkest_secret.c_str();
+	if (!stt || !*stt)
+		return (ERROR);
 	_darkest_secret = darkest_secret;
-	return (false);
+	return (SUCCESS);
 }
 
 std::string	Contact::get_first_name(void)
