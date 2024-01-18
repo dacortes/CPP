@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:52:54 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/16 18:44:55 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:12:52 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,31 @@ Contact::Contact(void)
 {
 }
 
-bool	get_first_name(std::string str)
+bool	Contact::set_first_name(std::string first_name)
 {
-	if (str != NULL || !str[0])
+	if (!first_name[0])
 		return (true);
-	this-->first_name = str;
+	_first_name = first_name;
 	return (false);
 }
 
-bool	get_last_name(std::string str)
+bool	Contact::set_last_name(std::string last_name)
 {
-	if (str != NULL || !str[0]))
+	if (!last_name[0])
+		return  (true);
+	_last_name = last_name;
+	return (false);
+}
+
+bool	Contact::set_phone_number(std::string phone_number)
+{
+	if (!phone_number[0])
 		return (true);
-	this->last_name = str;
+	for (unsigned int i = 0; i < phone_number.length(); i++)
+	{
+		if (!std::isdigit(phone_number[0]))
+			return (false);
+	}
 	return (false);
 }
 

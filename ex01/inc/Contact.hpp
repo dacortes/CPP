@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:27:57 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/16 18:38:30 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:53:47 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 class	Contact
 {
 	private:
-		std::string	first_name;
-		std::string	last_name;
-		std::string	phone_number;
-		std::string	darkest_secret;
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_phone_number;
+		std::string	_darkest_secret;
 	public:
 		Contact(void);
-		bool	get_first_name(std::string str);
-		bool	get_last_name(std::string str);
+		bool	set_first_name(std::string first_name);
+		bool	set_last_name(std::string last_name);
+		bool	set_phone_number(std::string phone_number);
 		~Contact(void);
 };
 
