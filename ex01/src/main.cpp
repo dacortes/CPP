@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:12:29 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/18 13:13:47 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:24:03 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	menu(void)
 	center_space("EXIT\n", 6);
 }
 
-bool	init_data(std::string input, PhoneBook p_book)
+bool	init_data(std::string input, PhoneBook p_book, int *index)
 {
 	(void)p_book;
 	Contact	_new;
@@ -70,16 +70,25 @@ bool	init_data(std::string input, PhoneBook p_book)
 	std::cout << "  phone number:\n";
 	std::getline(std::cin, input);
 	while (_new.set_phone_number(input))
+	{
+		std::cout << "   Invalid input, the field 'phone number'"
+			<< " only accepts digits\n";
 		std::getline(std::cin, input);
+	}
 	std::cout << "  darkest_secret:\n";
 	std::getline(std::cin, input);
 	_new.set_darkest_secret(input);
+	p_book.add_Contact(_new, *index);
+	index++;
 	return (false);
 }
 
 bool	run(std::string input)
 {
 	PhoneBook p_book;
+	int	index;
+
+	index = 0;
 	menu();
 	while (true)
 	{
@@ -88,7 +97,7 @@ bool	run(std::string input)
 			return (true);
 		if (!input.compare("ADD"))
 		{
-			init_data(input, p_book);
+			init_data(input, p_book, &index);
 		}
 		else if (!input.compare("SEARCH"))
 		{
