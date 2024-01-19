@@ -6,11 +6,12 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:12:29 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/18 16:00:43 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:26:20 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/phonebook.h"
+#include "stdio.h"
 
 void	center_space(const std::string str, int index)
 {
@@ -35,24 +36,15 @@ void	show_contacts(PhoneBook p_book, bool is)
 	}
 	else
 	{
-		/*
-		std::cout << "|";
-		center_space("1", 10);
-		std::cout << "|";
-		center_space("Dannyel", 10);
-		std::cout << "|";
-		center_space("Cortes", 10);
-		std::cout << "|\n";
-		*/
-		for (unsigned int i = 0; i < 1; i++)
+		for (int i = 0; i < p_book.get_size(); i++)
 		{
 			std::cout << "|";
-			center_space(itoa(i), 10);
+			center_space("1", 10);
 			std::cout << "|";
-			center_space(p_book.contacts[i].get_first_name, 10);
+			center_space(p_book.search_contact(i).get_first_name(),10);
 			std::cout << "|";
-			center_space(p_book.contacts[i].get_last_name, 10);
-			std::cout << "\n";
+			center_space(p_book.search_contact(i).get_last_name(),10);
+			std::cout << "|";
 		}
 	}
 }
@@ -68,7 +60,7 @@ void	menu(void)
 	center_space("EXIT\n", 6);
 }
 
-bool	init_data(std::string input, PhoneBook p_book, int *index)
+bool	init_data(std::string input, PhoneBook& p_book, int *index)
 {
 	Contact	_new;
 	int		stt;
@@ -95,7 +87,7 @@ bool	init_data(std::string input, PhoneBook p_book, int *index)
 	if (stt < SUCCESS)
 		return (true);
 	p_book.add_Contact(_new, *index);
-	index++;
+	(*index)++;
 	return (false);
 }
 
@@ -135,16 +127,6 @@ bool	run(std::string input)
 int	main(void)
 {
 	std::string	input;
-	//PhoneBook	p_book;
-	/*
-	Contact		c_cont;
 
-	c_cont.set_first_name("Dacortes");
-	c_cont.set_last_name("Cortes");
-	c_cont.set_phone_number("123456789");
-	c_cont.set_darkest_secret("queso");
-	std::cout << "first name: " << c_cont.get_first_name() << "\n";
-	p_book.add_Contact(c_cont, 0);
-	*/
 	return (run(input));
 }

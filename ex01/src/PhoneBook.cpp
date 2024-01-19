@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:56:32 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/18 12:47:14 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:24:55 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,30 @@
 
 PhoneBook::PhoneBook(void)
 {
+	_size = 0;
 }
 
-bool	PhoneBook::add_Contact(Contact contact, int index)
+void	PhoneBook::add_Contact(Contact contact, int index)
 {
 	if (index >= 8)
 	{
 		contacts[8] = contact;
-		return (true);
+		return ;
 	}
-	std::cout << "add object from add_contact\n";
 	contacts[index] = contact;
-	return (false);
+	_size++;
+	if (_size >= 8)
+		_size = 8;
 }
 
 Contact	PhoneBook::search_contact(int index)
 {
 	return (contacts[index]);
+}
+
+int	PhoneBook::get_size(void)
+{
+	return (_size);
 }
 
 PhoneBook::~PhoneBook(void)

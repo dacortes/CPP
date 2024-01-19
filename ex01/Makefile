@@ -6,7 +6,7 @@
 #    By: dacortes </var/mail/dacortes>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 16:13:31 by dacortes          #+#    #+#              #
-#    Updated: 2024/01/16 17:54:09 by dacortes         ###   ########.fr        #
+#    Updated: 2024/01/18 16:14:02 by dacortes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@
 
 NAME = phonebook 
 CPP = c++
-FLAGS = -Wall -Werror -Wextra -g -pedantic -std=c++98
-#-fsanitize=address
+FLAGS = -Wall -Werror -Wextra -g -pedantic -std=c++98 \
+	#-fsanitize=address
 RM = rm -rf
 
 ################################################################################
