@@ -5,40 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 10:38:04 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/21 17:27:55 by dacortes         ###   ########.fr       */
+/*   Created: 2024/01/16 12:56:32 by dacortes          #+#    #+#             */
+/*   Updated: 2024/01/19 10:24:55 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/phonebook.h"
+#include "../inc/PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void)
 {
-	_size = 0;	
+	_size = 0;
 }
 
-int	PhoneBook::set_contact(Contact _new, int index)
+void	PhoneBook::add_Contact(Contact contact, int index)
 {
 	if (index >= 8)
 	{
-		_list[8] = _new;
-		_size = 8;
-		return (SUCCESS);
+		contacts[8] = contact;
+		return ;
 	}
+	contacts[index] = contact;
 	_size++;
-	std::cout << "size: " << _size << "\n";
-	_list[index] = _new;
-	return (SUCCESS);
+	if (_size >= 8)
+		_size = 8;
+}
+
+Contact	PhoneBook::search_contact(int index)
+{
+	return (contacts[index]);
 }
 
 int	PhoneBook::get_size(void)
 {
 	return (_size);
-}
-
-Contact PhoneBook::get_contact(int index)
-{
-	return (_list[index]);
 }
 
 PhoneBook::~PhoneBook(void)

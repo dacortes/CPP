@@ -5,32 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 10:30:58 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/19 11:34:59 by dacortes         ###   ########.fr       */
+/*   Created: 2024/01/14 10:22:58 by dacortes          #+#    #+#             */
+/*   Updated: 2024/01/19 10:24:08 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
+#define PHONE_BOOK_HPP
 
-#include "phonebook.h"
+#include "../inc/phonebook.h"
 
 class	PhoneBook
 {
 	private:
-		Contact	_list[8];
+		Contact	contacts[8];
 		int		_size;
 	public:
 		PhoneBook(void);
-		/*
-			Set atributes
-		*/
-		int		set_contact(Contact _new, int index);
-		/*
-			Get atributes
-		*/
+		void	add_Contact(Contact contact, int index);
+		Contact	search_contact(int	index);
 		int		get_size(void);
-		Contact	get_contact(int	index);
 		~PhoneBook(void);
 };
 

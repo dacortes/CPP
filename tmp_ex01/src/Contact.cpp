@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 10:52:41 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/21 17:10:39 by dacortes         ###   ########.fr       */
+/*   Created: 2024/01/16 17:52:54 by dacortes          #+#    #+#             */
+/*   Updated: 2024/01/18 15:30:26 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,56 @@ Contact::Contact(void)
 {
 }
 
-int	Contact::set_first_name(char *first_name)
+int	Contact::set_first_name(std::string first_name)
 {
-	if (!first_name)
+	const char	*stt;
+
+	stt =  first_name.c_str();
+	if (!stt || !*stt)
 		return (ERROR);
-	_first_name = first_name;	
+	_first_name = first_name;
 	return (SUCCESS);
 }
 
-int	Contact::set_last_name(char *last_name)
+int	Contact::set_last_name(std::string last_name)
 {
-	if (!last_name)
+	const char	*stt;
+
+	stt =  last_name.c_str();
+	if (!stt || !*stt)
 		return (ERROR);
 	_last_name = last_name;
 	return (SUCCESS);
 }
 
-int	Contact::set_phone_number(char *phone_number)
+int	Contact::set_phone_number(std::string phone_number)
 {
-	if (!phone_number)
+	const char	*stt;
+
+	stt =  phone_number.c_str();
+	if (!stt || !*stt)
 		return (ERROR);
-	_phone_number = phone_number;
-	for (unsigned int i = 0; i < _phone_number.length(); i++)
+	for (unsigned int i = 0; i < phone_number.length(); i++)
 	{
-		if (!std::isdigit(_phone_number[0]))
+		if (!std::isdigit(phone_number[0]))
 			return (E_NUM);
 	}
+	_phone_number = phone_number;
 	return (SUCCESS);
 }
 
-int	Contact::set_darkest_secret(char *darkest_secret)
+int	Contact::set_darkest_secret(std::string darkest_secret)
 {
-	if (!darkest_secret)
+	const char	*stt;
+
+	stt =  darkest_secret.c_str();
+	if (!stt || !*stt)
 		return (ERROR);
 	_darkest_secret = darkest_secret;
 	return (SUCCESS);
 }
 
-std::string Contact::get_first_name(void)
+std::string	Contact::get_first_name(void)
 {
 	return (_first_name);
 }
