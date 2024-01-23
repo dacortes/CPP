@@ -1,5 +1,4 @@
 
-
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -71,7 +70,6 @@ dir:
 
 $(D_OBJ)/%.o:$(D_SRC)/%.cpp Makefile
 	$(CPP) $(FLAGS) -c $< -o $@
-
 $(NAME): $(OBJ)
 	$(CPP) $(FLAGS) $(INC) $(OBJ) -o $(NAME)
 	echo "$(B)$(ligth)Project main compiled!$(E)"
