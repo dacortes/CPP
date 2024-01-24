@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:49:59 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 11:27:39 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:09:10 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	errors(int _error)
 			<< " only accepts digits\n";
 	if (_error == E_EMP)
 		std::cout << " PhoneBook empty\n";
+	if (_error == E_EMI)
+		std::cout << "  Error: empty entry\n";
 	return (ERROR);
 }
 
@@ -81,11 +83,13 @@ int	get_line(std::string str, Contact &_new, short method)
 {
 	std::string	input;
 
-	std::cout << str << "\n";
+	std::cout << str << " ";
 	std::getline(std::cin, input);
 	if (std::cin.eof())
 		return ((errors(E_CTD) * 0) + -2);
-	if (method == M_GNM && _new.set_first_name((char *)input.c_str()))
+	if (method == M_GFN && _new.set_first_name((char *)input.c_str()))
+		return (ERROR);
+	else if (method == M_GLN && _new.set_last_name((char *)input.c_str()))
 		return (ERROR);
 	else if (method == M_GPN && _new.set_phone_number((char *)input.c_str()))
 		return (ERROR);

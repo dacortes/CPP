@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 10:45:21 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 11:23:41 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:09:17 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@
 #define	SUCCESS	0
 /*
  * Methods:
- M_GNM = get_name(), M_GLM = last_name()
+ M_GFM = get_name(), M_GLN = last_name()
  M_GPN = get_phone_number();
  M_DST = get_darkest_secret();
 */
-#define M_GNM	1
-#define M_GLM	2
+#define M_GFN	1
+#define M_GLN	2
 #define M_GPN	3
 #define M_GDS	4
 
@@ -47,6 +47,7 @@
 #define E_CTD	4
 #define E_INP	5
 #define E_EMP	6
+#define E_EMI	7
 
 /******************************************************************************/
 /*	Funtions																  */
