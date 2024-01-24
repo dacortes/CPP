@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:38:04 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 14:09:14 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:47:43 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ bool	Contact::set_last_name(char *last_name)
 	if (!last_name || !*last_name)
 		return (true);
 	_last_name = last_name;
+	return (false);
+}
+
+bool	Contact::set_nickname(char *nickname)
+{
+	if (!nickname || !*nickname)
+		return (true);
+	_nickname = nickname;
 	return (false);
 }
 
@@ -63,6 +71,11 @@ std::string	Contact::get_first_name(void)
 std::string	Contact::get_last_name(void)
 {
 	return (_last_name);
+}
+
+std::string Contact::get_nickname(void)
+{
+	return (_nickname);
 }
 
 std::string	Contact::get_phone_number(void)

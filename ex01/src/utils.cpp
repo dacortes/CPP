@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:49:59 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 14:09:10 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 17:05:44 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	indent(bool type, std::string str, int space, int index)
 {
 	if (!type)
 	{
+		if (str.length() > 10)
+			str.erase(9, str.length()).append(1, '.');
 		std::cout << std::setw(space);
 		std::cout << str;
 	}
@@ -37,7 +39,7 @@ void	menu(void)
 	indent(false, "EXIT\n", 6, 0);
 }
 
-void	show_contacts(PhoneBook p_book, bool is)
+void	show_contacts(PhoneBook p_book, bool is, int index)
 {
 	if (!is)
 	{
@@ -48,15 +50,19 @@ void	show_contacts(PhoneBook p_book, bool is)
 		std::cout << "|";
 		indent(false, "Last name", 10, 0);
 		std::cout << "|";
+		indent(false, "nickname", 10, 0);
+		std::cout << "|\n";
 	}
 	else
 	{
 		std::cout << "|";
-		indent(false, "", 10, 1);
+		indent(true, "", 10, (index + 1));
 		std::cout << "|";
-		indent(true, p_book.get_contact(1).get_first_name(), 10, 0);
+		indent(false, p_book.get_contact(index).get_first_name(), 10, 0);
 		std::cout << "|";
-		indent(true, p_book.get_contact(1).get_last_name(), 10, 0);
+		indent(false, p_book.get_contact(index).get_last_name(), 10, 0);
+		std::cout << "|";
+		indent(false, p_book.get_contact(index).get_nickname(), 10, 0);
 		std::cout << "|\n";
 	}
 }
@@ -90,6 +96,8 @@ int	get_line(std::string str, Contact &_new, short method)
 	if (method == M_GFN && _new.set_first_name((char *)input.c_str()))
 		return (ERROR);
 	else if (method == M_GLN && _new.set_last_name((char *)input.c_str()))
+		return (ERROR);
+	else if (method == M_GNM && _new.set_nickname((char *)input.c_str()))
 		return (ERROR);
 	else if (method == M_GPN && _new.set_phone_number((char *)input.c_str()))
 		return (ERROR);
