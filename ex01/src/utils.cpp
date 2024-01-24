@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:49:59 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 17:05:44 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 19:00:51 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,12 @@ int	errors(int _error)
 		std::cout << " PhoneBook empty\n";
 	if (_error == E_EMI)
 		std::cout << "  Error: empty entry\n";
+	if (_error == E_IID)
+		std::cout << "  Invalid index\n";
 	return (ERROR);
 }
 
-int	get_line(std::string str, Contact &_new, short method)
+int	get_line(std::string str, Contact &_new, short method, int &num)
 {
 	std::string	input;
 
@@ -103,5 +105,16 @@ int	get_line(std::string str, Contact &_new, short method)
 		return (ERROR);
 	else if (method == M_GDS && _new.set_darkest_secret((char *)input.c_str()))
 		return (ERROR);
+	else if (method == M_SCH)
+	{
+		if (!input[0])
+			return (ERROR);
+		for (unsigned int i = 0; i < input.length(); i++)
+		{
+			if (!std::isdigit(input[0]))
+				return (ERROR);
+		}
+		num = std::stoi(input);
+	}
 	return (SUCCESS);
 }

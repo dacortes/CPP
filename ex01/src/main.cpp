@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:49:59 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 16:38:04 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:58:45 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int	check_input(std::string str, Contact &_new, short method, int _error)
 {
 	int stt;
+	int	num;
 
 	stt = 0;
+	num = 0;
 	while (true)
 	{
-		stt = get_line(str, _new, method);
+		stt = get_line(str, _new, method, num);
 		if (stt == -2)
 			return (true);
 		else if (!stt)
@@ -64,9 +66,35 @@ static int	run(std::string input, PhoneBook &p_book, char *check, int &index)
 				errors(E_EMP);
 			else
 			{
+				std::string	_num;
+				Contact tmp;
+				int	num;
+				int stt;
+
+				stt = 0;
+				num = 0;
 				show_contacts(p_book, false, 0);
 				for (int i = 0; i < p_book.get_size(); i++)
 					show_contacts(p_book, true, i);
+				stt = get_line("Select index:", tmp, M_SCH, num) == -2;
+				if (stt  == -2)
+					return (errors(E_EMP));
+				if (!num || num > p_book.get_size())
+					errors(E_IID);
+				else
+				{	
+					std::cout << "First name: " 
+						<< p_book.get_contact((num - 1)).get_first_name() << "\n";
+					std::cout << "Last name: " 
+						<< p_book.get_contact((num - 1)).get_last_name() << "\n";
+					std::cout << "Nick name: " 
+						<< p_book.get_contact((num - 1)).get_nickname() << "\n";
+					std::cout << "Phone number: " 
+						<< p_book.get_contact((num - 1)).get_phone_number() << "\n";
+					std::cout << "Darkest secret: " 
+						<< p_book.get_contact((num - 1)).get_darkest_secret() << "\n";
+				}
+
 			}
 		}
 		else if (!input.compare("EXIT"))

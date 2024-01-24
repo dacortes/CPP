@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 10:45:21 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 16:35:11 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:27:19 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 #define M_GNM	3
 #define M_GPN	4
 #define M_GDS	5
+#define M_SCH	6
 
 //Errors
 #define	E_NUM	1
@@ -49,6 +50,7 @@
 #define E_INP	5
 #define E_EMP	6
 #define E_EMI	7
+#define E_IID	8
 
 /******************************************************************************/
 /*	Funtions																  */
@@ -59,6 +61,6 @@ void	menu(void);
 int		errors(int _error);
 void	show_contacts(PhoneBook p_book, bool is, int index);
 void	indent(bool type, std::string str, int space, int index);
-int		get_line(std::string str, Contact &_new, short method);
+int		get_line(std::string str, Contact &_new, short method, int &num);
 
 #endif
