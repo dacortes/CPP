@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 18:05:34 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/23 10:27:41 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:30:48 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Contact
 		std::string _phone_number;
 		std::string _darkest_secret;
 	public:
-		Conact(void);
+		Contact(void);
 		/*
 			Set atributes
 		*/

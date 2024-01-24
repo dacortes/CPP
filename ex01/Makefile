@@ -26,7 +26,7 @@ RM = rm -rf
 #                               SOURCES                                        #
 ################################################################################
 
-SRC = main.cpp PhoneBook.cpp Contact.cpp
+SRC = main.cpp utils.cpp PhoneBook.cpp Contact.cpp
 INC = -I ./inc/
 
 ################################################################################
