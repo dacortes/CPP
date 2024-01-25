@@ -6,7 +6,7 @@
 #    By: dacortes </var/mail/dacortes>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 09:41:02 by dacortes          #+#    #+#              #
-#    Updated: 2024/01/25 08:51:09 by dacortes         ###   ########.fr        #
+#    Updated: 2024/01/25 09:18:20 by dacortes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ dir:
 	-mkdir $(D_OBJ)
 
 $(D_OBJ)/%.o: %.cpp Makefile
-	$(CPP) $(FLAGS) -c $< -o $@
+	$(CPP) $(FLAGS) -MMD -c $< -o $@
 	echo "$(ligth)$(B)file:$(E) $(ligth)$< $(B)to$(E) $(ligth)$@$(E)"
 
 $(NAME): $(OBJ)

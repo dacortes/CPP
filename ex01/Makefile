@@ -27,7 +27,7 @@ RM = rm -rf
 ################################################################################
 
 SRC = main.cpp utils.cpp PhoneBook.cpp Contact.cpp
-INC = -I ./inc/
+INC = $(addprefix -I , inc/)
 
 ################################################################################
 #                               DIRECTORIES                                    #
@@ -70,11 +70,12 @@ dir:
 	-mkdir $(D_OBJ)
 
 $(D_OBJ)/%.o:$(D_SRC)/%.cpp Makefile
-	$(CPP) $(FLAGS) -c $< -o $@
+	$(CPP) $(FLAGS) -MMD -c $< -o $@ $(INC)
+	printf "\r$(ligth)$(B)file:$(E) $(ligth)$< $(B)to$(E) $(ligth)$@$(E)      "
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) 
 	$(CPP) $(FLAGS) $(INC) $(OBJ) -o $(NAME)
-	echo "$(B)$(ligth)Project main compiled!$(E)"
+	echo "\n$(B)$(ligth)Project $(NAME) compiled!$(E)      "
 
 ################################################################################
 #                               CLEAN                                          #
@@ -82,11 +83,11 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(D_OBJ)
-	echo "$(P)$(ligth)main object files cleaned!$(E)"
+	echo "$(ligth)->$(B)$(NAME) object files cleaned!$(E)"
 
 fclean: clean
 	$(RM) $(NAME)
-	echo "$(P)$(ligth)main executable files and name cleaned!$(E)\n"
+	echo "$(ligth)->$(B)$(NAME) executable files and name cleaned!$(E)"
 
 re: fclean all
 
