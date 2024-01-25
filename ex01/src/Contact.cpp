@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:38:04 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 19:03:11 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/25 10:13:00 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ bool	Contact::set_phone_number(char *phone_number)
 {
 	if (!phone_number || !*phone_number)
 		return (true);
-
+	_phone_number = phone_number;
 	for (unsigned int i = 0; i < _phone_number.length(); i++)
 	{
 		if (!std::isdigit(_phone_number[0]))
