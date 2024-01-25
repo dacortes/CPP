@@ -6,7 +6,7 @@
 #    By: dacortes </var/mail/dacortes>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 09:41:02 by dacortes          #+#    #+#              #
-#    Updated: 2024/01/09 19:01:15 by dacortes         ###   ########.fr        #
+#    Updated: 2024/01/25 08:51:09 by dacortes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,9 +66,11 @@ dir:
 
 $(D_OBJ)/%.o: %.cpp Makefile
 	$(CPP) $(FLAGS) -c $< -o $@
+	echo "$(ligth)$(B)file:$(E) $(ligth)$< $(B)to$(E) $(ligth)$@$(E)"
+
 $(NAME): $(OBJ)
 	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
-	echo "$(B)$(ligth)Project megaphone compiled!$(E)"
+	echo "$(B)$(ligth)Project $(NAME) compiled!$(E)"
 
 ################################################################################
 #                               CLEAN                                          #
@@ -76,11 +78,11 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(D_OBJ)
-	echo "$(P)$(ligth)megaphone object files cleaned!$(E)"
+	echo "$(ligth)$(B)$(NAME) object files cleaned!$(E)"
 
 fclean: clean
 	$(RM) $(NAME)
-	echo "$(P)$(ligth)megaphone executable files and name cleaned!$(E)\n"
+	echo "$(ligth)$(B)$(NAME) executable files and name cleaned!$(E)"
 
 re: fclean all
 
