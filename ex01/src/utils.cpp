@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:49:59 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/25 10:13:15 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:26:36 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	get_line(std::string str, Contact &_new, short method, int &num)
 			if (!std::isdigit(input[0]))
 				return (ERROR);
 		}
-		num = std::stoi(input);
+		num = std::atoi(input.c_str());
 	}
 	return (SUCCESS);
 }

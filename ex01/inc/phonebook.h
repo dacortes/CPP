@@ -6,7 +6,7 @@
 /*   By: dacortes </var/mail/dacortes>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 10:45:21 by dacortes          #+#    #+#             */
-/*   Updated: 2024/01/24 19:03:07 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:26:10 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <cstdlib>
 #include <iomanip>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
